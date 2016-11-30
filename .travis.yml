@@ -30,7 +30,7 @@ before_install:
   - export RAILS_ENV=test
 install:
   - if [ "${DB}" = "mysql" ]; then bundle install --without postgres; fi
-  - if [ "${DB}" = "postgresql" ]; bundle install; fi
+  - if [ "${DB}" = "postgresql" ]; then bundle install; fi
 script:
 - bundle exec rubocop
 - rake db:create
