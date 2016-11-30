@@ -41,7 +41,6 @@ script:
 - rake db:create
 - rake db:migrate
 - rake db:seed
-- ruby -I test/ test/integration/email_helper_test.rb
 - ruby -I test/ test/integration/geo_location_test.rb
 - ruby -I test/ test/integration/geo_calendar_test.rb
 - ruby -I test/ test/integration/user_agent_test.rb
