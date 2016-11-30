@@ -1,0 +1,16 @@
+before_script:
+  - ruby -v
+  - which ruby
+  - env
+  - test -n "$RNAME" && script/build/test_db_config.sh
+  - test -n "$RNAME" && bundle install
+
+stages:
+  - pre
+
+pre:github:
+  stage: pre
+  tags:
+    - deploy
+  script:
+    - script/build/sync_repo.sh git@github.com:zammad/zammad.git
