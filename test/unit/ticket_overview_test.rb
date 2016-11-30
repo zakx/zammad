@@ -547,7 +547,7 @@ class TicketOverviewTest < ActiveSupport::TestCase
     assert_equal(result[2][:overview][:view], 'my_tickets_2')
     assert_equal(result[2][:tickets].class, Array)
     assert(result[2][:tickets].empty?)
-
+    sleep 2
     ticket3 = Ticket.create(
       title: 'overview test 3',
       group: Group.lookup(name: 'OverviewTest'),
