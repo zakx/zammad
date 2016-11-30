@@ -22,15 +22,15 @@ rvm:
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y curl git-core patch build-essential bison zlib1g-dev libssl-dev libxml2-dev libxml2-dev sqlite3 libsqlite3-dev autotools-dev libxslt1-dev libyaml-0-2 autoconf automake libreadline6-dev libyaml-dev libtool libgmp-dev libgdbm-dev libncurses5-dev pkg-config libffi-dev libmysqlclient-dev postfix
-  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -u root -e "CREATE USER 'some_user'@'localhost' IDENTIFIED BY 'some_pass';"; fi"
-  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'some_user'@'localhost';"; fi"
-  - sh -c "if [ '$DB' = 'mysql' ]; then cp config/database.yml.test-mysql config/database.yml; fi"
-  - sh -c "if [ '$DB' = 'postgresql' ]; then psql -c 'create database zammad_test;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'postgresql' ]; then cp config/database.yml.test-postgresql config/database.yml; fi"
+  - sh -c "if [ ${DB} = 'mysql' ]; then mysql -u root -e "CREATE USER 'some_user'@'localhost' IDENTIFIED BY 'some_pass';"; fi"
+  - sh -c "if [ ${DB} = 'mysql' ]; then mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'some_user'@'localhost';"; fi"
+  - sh -c "if [ ${DB} = 'mysql' ]; then cp config/database.yml.test-mysql config/database.yml; fi"
+  - sh -c "if [ ${DB} = 'postgresql' ]; then psql -c 'create database zammad_test;' -U postgres; fi"
+  - sh -c "if [ ${DB} = 'postgresql' ]; then cp config/database.yml.test-postgresql config/database.yml; fi"
   - export RAILS_ENV=test
 install:
-  - sh -c "if [ '$DB' = 'mysql' ]; then bundle install --without postgres; fi"
-  - sh -c "if [ '$DB' = 'postgresql' ]; bundle install; fi"
+  - sh -c "if [ ${DB} = 'mysql' ]; then bundle install --without postgres; fi"
+  - sh -c "if [ ${DB} = 'postgresql' ]; bundle install; fi"
 script:
 - bundle exec rubocop
 - rake db:create
