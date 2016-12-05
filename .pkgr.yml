@@ -26,6 +26,11 @@ before:
   - "cat Gemfile.lock"
   - contrib/cleanup.sh
 after:
+  - ruby -v
+  - env
+  - which ruby
+  - which rails
+  - pwd
   - rails r 'Locale.fetch'
   - rails r 'Translation.fetch'
 env:
