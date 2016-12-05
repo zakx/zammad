@@ -3,8 +3,6 @@
 # packager.io after script
 #
 
-PATH=/opt/zammad/bin:/opt/zammad/vendor/bundle/bin:/sbin:/bin:/usr/sbin:/usr/bin:
-
 set -e
 
 gem install bundle
