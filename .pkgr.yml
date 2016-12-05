@@ -31,6 +31,7 @@ after:
   - which ruby
   - which rails
   - pwd
+  - ls -la /home/pkgr/bin
   - ls -la
   - ls -l /usr/bin/ruby
   - gem environment

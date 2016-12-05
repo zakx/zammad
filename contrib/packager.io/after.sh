@@ -3,6 +3,8 @@
 # packager.io after script
 #
 
+PATH=$PATH:/home/pkgr/bin:
+
 set -e
 
 gem install bundle
