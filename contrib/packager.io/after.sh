@@ -4,7 +4,12 @@
 #
 
 #PATH=$PATH:/home/pkgr/bin:
-path=$PATH:`pwd`/bin
+PATH=$PATH:`pwd`/bin
+
+env
+
+ls -la
+ls -la bin/
 
 set -e
 
