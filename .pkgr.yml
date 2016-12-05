@@ -31,7 +31,9 @@ after:
   - which ruby
   - which rails
   - pwd
-  - ls -l
+  - ls -la
+  - ls -l /usr/bin/ruby
+  - gem environment
   - contrib/packager.io/after.sh
 env:
   - RAILS_ENV=production
