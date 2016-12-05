@@ -5,7 +5,8 @@
 
 #PATH=$PATH:/home/pkgr/bin:
 #PATH=$PATH:`pwd`/bin
-PATH=$PATH:`pwd`/vendor/ruby-2.3.1/bin
+#PATH=$PATH:`pwd`/vendor/ruby-2.3.1/bin
+RAILS=`pwd`/vendor/ruby-2.3.1/bin/rails
 
 env
 
@@ -14,10 +15,9 @@ ls -la bin/
 
 set -e
 
-gem install bundle
+#gem install bundle
+#bundle install
 
-bundle install
+$RAILS r 'Locale.fetch'
 
-rails r 'Locale.fetch'
-
-rails r 'Translation.fetch'
+$RAILS r 'Translation.fetch'
