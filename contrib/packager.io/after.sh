@@ -3,7 +3,8 @@
 # packager.io after script
 #
 
-PATH=$PATH:/home/pkgr/bin:
+#PATH=$PATH:/home/pkgr/bin:
+path=$PATH:`pwd`/bin
 
 set -e
 
