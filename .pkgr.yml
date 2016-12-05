@@ -31,8 +31,7 @@ after:
   - which ruby
   - which rails
   - pwd
-  - rails r 'Locale.fetch'
-  - rails r 'Translation.fetch'
+  - contrib/packager.io/after.sh
 env:
   - RAILS_ENV=production
   - PORT=3000
