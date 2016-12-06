@@ -29,7 +29,7 @@ ls -la vendor/ruby-2.3.1/bin
 
 set -e
 
-#gem install bundle
+gem install bundle
 bundle install
 
 $RAILS r 'Locale.fetch'
