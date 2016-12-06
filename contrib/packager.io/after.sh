@@ -32,6 +32,11 @@ set -e
 gem install bundle
 bundle install
 
+rake db:migrate
+rake db:seed
+
 $RAILS r 'Locale.fetch'
 
 $RAILS r 'Translation.fetch'
+
+rm -rf tmp/cache*
