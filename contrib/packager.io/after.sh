@@ -7,7 +7,7 @@
 #PATH=$PATH:`pwd`/bin
 #PATH=$PATH:`pwd`/vendor/ruby-2.3.1/bin
 #RAILS=`pwd`/vendor/ruby-2.3.1/bin/rails
-RAILS=vendor/ruby-2.3.1/bin/rails
+RAILS=bin/rails
 
 env
 
@@ -17,9 +17,9 @@ ls -la bin/
 echo "-----"
 ls -la vendor/
 echo "-----"
-ls -la vendor/bin
-echo "-----"
 ls -la vendor/ruby-2.3.1
+echo "-----"
+ls -la vendor/ruby-2.3.1/bin
 
 set -e
 
