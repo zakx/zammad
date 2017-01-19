@@ -31,7 +31,7 @@ class ActiveSupport::TestCase
   Cache.clear
 
   # load seeds
-  #load "#{Rails.root}/db/seeds.rb"
+  load "#{Rails.root}/db/seeds.rb"
   load "#{Rails.root}/test/fixtures/seeds.rb"
 
   # set system mode to done / to activate
