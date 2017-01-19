@@ -36,12 +36,6 @@ Subject: #{ticket.subject_build('some new subject')}
 
 Some Text"
 
-    users_group.update_attribute('follow_up_possible', 'yes')
-
-    travel 1.second
-    ticket_p, article_p, user_p = Channel::EmailParser.new.process({}, follow_up_raw)
-    assert_equal(ticket.id, ticket_p.id)
-
     users_group.update_attribute('follow_up_possible', 'new_ticket')
 
     travel 1.second
@@ -55,5 +49,11 @@ Some Text"
     travel 1.second
     result = Channel::EmailParser.new.process({}, follow_up_raw)
     assert_equal(true, result)
+
+    users_group.update_attribute('follow_up_possible', 'yes')
+
+    travel 1.second
+    ticket_p, article_p, user_p = Channel::EmailParser.new.process({}, follow_up_raw)
+    assert_equal(ticket.id, ticket_p.id)
   end
 end
