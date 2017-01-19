@@ -2198,6 +2198,15 @@ Setting.create_if_not_exists(
 )
 Setting.create_if_not_exists(
   title: 'Define postmaster filter.',
+  name: '0200_postmaster_filter_follow_up_possible_check',
+  area: 'Postmaster::PreFilter',
+  description: 'Define postmaster filter to check if follow ups get created (based on admin settings).',
+  options: {},
+  state: 'Channel::Filter::FollowUpPossibleCheck',
+  frontend: false
+)
+Setting.create_if_not_exists(
+  title: 'Define postmaster filter.',
   name: '0900_postmaster_filter_bounce_check',
   area: 'Postmaster::PreFilter',
   description: 'Define postmaster filter to identify postmaster bounced - to handle it as follow up of origin ticket.',
