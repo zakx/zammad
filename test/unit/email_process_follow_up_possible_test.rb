@@ -5,7 +5,7 @@ class EmailProcessFollowUpPossibleTest < ActiveSupport::TestCase
 
   test 'process with follow up possible check' do
 
-    users_group = Group.lookup(name: 'Users');
+    users_group = Group.lookup(name: 'Users')
 
     ticket = Ticket.create(
       title: 'follow up check',
@@ -36,13 +36,13 @@ Subject: #{ticket.subject_build('some new subject')}
 
 Some Text"
 
-    users_group.update_attribute('follow_up_possible', 'yes');
+    users_group.update_attribute('follow_up_possible', 'yes')
 
     travel 1.second
     ticket_p, article_p, user_p = Channel::EmailParser.new.process({}, follow_up_raw)
     assert_equal(ticket.id, ticket_p.id)
 
-    users_group.update_attribute('follow_up_possible', 'new_ticket');
+    users_group.update_attribute('follow_up_possible', 'new_ticket')
 
     travel 1.second
     ticket_p, article_p, user_p = Channel::EmailParser.new.process({}, follow_up_raw)
@@ -50,7 +50,7 @@ Some Text"
     assert_equal('some new subject', ticket_p.title)
     assert_equal('some new subject', article_p.subject)
 
-    users_group.update_attribute('follow_up_possible', 'reject');
+    users_group.update_attribute('follow_up_possible', 'reject')
 
     travel 1.second
     result = Channel::EmailParser.new.process({}, follow_up_raw)
